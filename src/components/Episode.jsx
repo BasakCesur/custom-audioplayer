@@ -1,0 +1,20 @@
+// Episode.js
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function Episode({ episode }) {
+  return (
+    <Card className="">
+      <CardContent className="flex flex-col gap- items-start">
+        <h2 className="text-2xl font-bold">{episode.name}</h2>
+        <p
+          className="text-md text-muted-foreground line-clamp-2"
+          dangerouslySetInnerHTML={{ __html: episode.description }}
+        />
+      </CardContent>
+      <CardFooter className="flex justify-between">
+        <Button variant="outline">Play</Button>
+      </CardFooter>
+    </Card>
+  );
+}
