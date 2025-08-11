@@ -1,8 +1,10 @@
 // Episode.js
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
+import { useAudioPlayer } from "@/hooks/useAudioPlayer";
+import { Play, Pause } from "lucide-react";
 export default function Episode({ episode }) {
+  const player = useAudioPlayer(episode);
   return (
     <Card className="">
       <CardContent className="flex flex-col gap- items-start">
@@ -13,7 +15,9 @@ export default function Episode({ episode }) {
         />
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button variant="outline">Play</Button>
+        <Button variant="outline" onClick={player.toggle}>
+          {player.playing ? <Pause /> : <Play />}
+        </Button>
       </CardFooter>
     </Card>
   );
