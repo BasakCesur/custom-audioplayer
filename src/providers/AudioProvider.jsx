@@ -10,6 +10,7 @@ const ACTIONS = {
 };
 
 export const AudioPlayerContext = createContext();
+
 const initialState = {
   episode: null,
   playing: false,
